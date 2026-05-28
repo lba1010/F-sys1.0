@@ -1,0 +1,587 @@
+html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Central de Documentos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:10px;
+
+  background:
+  radial-gradient(circle at top,#2563eb 0%,transparent 40%),
+  linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
+}
+
+/* CONTAINER */
+
+.container{
+  width:100%;
+  max-width:420px;
+
+  height:100%;
+  max-height:95vh;
+
+  overflow-y:auto;
+
+  padding:18px;
+
+  border-radius:28px;
+
+  background:rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  position:relative;
+
+  box-shadow:
+  0 20px 40px rgba(0,0,0,0.35),
+  inset 0 1px 1px rgba(255,255,255,0.08);
+
+  scrollbar-width:none;
+}
+
+.container::-webkit-scrollbar{
+  display:none;
+}
+
+.container::before{
+  content:'';
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  background:rgba(59,130,246,0.15);
+
+  border-radius:50%;
+
+  top:-70px;
+  right:-70px;
+
+  filter:blur(20px);
+}
+
+/* LOGO */
+
+.logo{
+  width:82px;
+  height:82px;
+
+  margin:0 auto 12px;
+
+  border-radius:24px;
+
+  background:linear-gradient(135deg,#2563eb,#60a5fa);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+
+  font-size:34px;
+
+  box-shadow:
+  0 15px 30px rgba(37,99,235,0.45),
+  inset 0 1px 2px rgba(255,255,255,0.25);
+}
+
+/* TITULOS */
+
+h1{
+  text-align:center;
+
+  color:white;
+
+  font-size:24px;
+  font-weight:700;
+
+  margin-bottom:4px;
+}
+
+.subtitle{
+  text-align:center;
+
+  color:rgba(255,255,255,0.70);
+
+  font-size:12px;
+
+  margin-bottom:20px;
+}
+
+/* BOTÕES */
+
+.btn{
+  width:100%;
+
+  min-height:74px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  text-decoration:none;
+
+  background:rgba(255,255,255,0.06);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:22px;
+
+  padding:14px;
+
+  margin-bottom:12px;
+
+  transition:0.25s ease;
+
+  position:relative;
+  overflow:hidden;
+
+  box-shadow:
+  0 10px 20px rgba(0,0,0,0.18),
+  inset 0 1px 1px rgba(255,255,255,0.05);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+  box-shadow:
+  0 15px 25px rgba(37,99,235,0.35);
+}
+
+.btn-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ICONES */
+
+.icon{
+  width:52px;
+  height:52px;
+
+  border-radius:18px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  position:relative;
+  overflow:hidden;
+
+  font-size:22px;
+  font-weight:700;
+
+  color:white;
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+  0 10px 20px rgba(0,0,0,0.25),
+  inset 0 1px 1px rgba(255,255,255,0.25);
+}
+
+.icon::before{
+  content:'';
+
+  position:absolute;
+
+  width:120%;
+  height:120%;
+
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+
+  top:-20px;
+  left:-20px;
+
+  transform:rotate(25deg);
+}
+
+.icon span{
+  position:relative;
+  z-index:2;
+}
+
+/* CORES */
+
+.icon-magno{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.icon-crys{
+  background:linear-gradient(135deg,#a855f7,#7e22ce);
+}
+
+.icon-lys{
+  background:linear-gradient(135deg,#10b981,#047857);
+}
+
+.icon-bia{
+  background:linear-gradient(135deg,#f43f5e,#be123c);
+}
+
+.icon-sofia{
+  background:linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+/* TEXTOS */
+
+.text h2{
+  color:white;
+
+  font-size:14px;
+  font-weight:600;
+
+  margin-bottom:2px;
+}
+
+.text p{
+  color:rgba(255,255,255,0.70);
+
+  font-size:11px;
+}
+
+/* SETA */
+
+.arrow{
+  width:36px;
+  height:36px;
+
+  border-radius:12px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:rgba(255,255,255,0.10);
+
+  color:white;
+
+  font-size:14px;
+}
+
+/* BOTÃO SAIR */
+
+.exit-btn{
+  width:100%;
+
+  margin-top:8px;
+  padding:14px;
+
+  border:none;
+  outline:none;
+
+  border-radius:20px;
+
+  background:linear-gradient(135deg,#dc2626,#ef4444);
+
+  color:white;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+
+  transition:0.25s ease;
+
+  box-shadow:
+  0 10px 20px rgba(220,38,38,0.35);
+}
+
+.exit-btn:hover{
+  transform:translateY(-2px);
+
+  background:linear-gradient(135deg,#b91c1c,#dc2626);
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+
+  color:rgba(255,255,255,0.50);
+
+  font-size:10px;
+
+  margin-top:10px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:480px){
+
+  .container{
+    max-width:100%;
+    height:100%;
+    max-height:100%;
+    border-radius:24px;
+    padding:16px;
+  }
+
+  h1{
+    font-size:22px;
+  }
+
+  .subtitle{
+    font-size:11px;
+  }
+
+  .icon{
+    width:48px;
+    height:48px;
+    font-size:20px;
+  }
+
+  .text h2{
+    font-size:13px;
+  }
+
+  .text p{
+    font-size:10px;
+  }
+
+  .btn{
+    padding:12px;
+  }
+
+}
+
+@media(max-height:700px){
+
+  .logo{
+    width:70px;
+    height:70px;
+    font-size:28px;
+  }
+
+  .btn{
+    min-height:66px;
+    margin-bottom:10px;
+  }
+
+  .icon{
+    width:44px;
+    height:44px;
+    font-size:18px;
+  }
+
+  .exit-btn{
+    padding:12px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <i class="fa-solid fa-folder-open"></i>
+  </div>
+
+  <h1>Central de Documentos</h1>
+
+  <p class="subtitle">
+    Acesso rápido aos documentos
+  </p>
+
+  <!-- MAGNO -->
+  <a class="btn"
+  href="https://drive.google.com/drive/folders/1Z4QOPxorwR9x_6uGzKhuu04QeUO_fH_B?usp=drive_link"
+  target="_blank">
+
+    <div class="btn-left">
+
+      <div class="icon icon-magno">
+        <span>M</span>
+      </div>
+
+      <div class="text">
+        <h2>Documentos de Magno</h2>
+        <p>Google Drive</p>
+      </div>
+
+    </div>
+
+    <div class="arrow">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+  </a>
+
+  <!-- CRYS -->
+  <a class="btn"
+  href="https://drive.google.com/drive/folders/1eyLEhDnAwxLXZkPWMyoz0dmjxweQ-Aqm?usp=drive_link"
+  target="_blank">
+
+    <div class="btn-left">
+
+      <div class="icon icon-crys">
+        <span>C</span>
+      </div>
+
+      <div class="text">
+        <h2>Documentos de Crys</h2>
+        <p>Google Drive</p>
+      </div>
+
+    </div>
+
+    <div class="arrow">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+  </a>
+
+  <!-- LYS -->
+  <a class="btn"
+  href="https://drive.google.com/drive/folders/1u5Dw5-rQXeZIp6PrVVLoCnlbIDmRbR55?usp=drive_link"
+  target="_blank">
+
+    <div class="btn-left">
+
+      <div class="icon icon-lys">
+        <span>L</span>
+      </div>
+
+      <div class="text">
+        <h2>Documentos de Lys</h2>
+        <p>Google Drive</p>
+      </div>
+
+    </div>
+
+    <div class="arrow">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+  </a>
+
+  <!-- BIA -->
+  <a class="btn"
+  href="https://drive.google.com/drive/folders/1OloP2m9Cvl0xFaCdHM0yJO8JVCizMnnB?usp=drive_link"
+  target="_blank">
+
+    <div class="btn-left">
+
+      <div class="icon icon-bia">
+        <span>B</span>
+      </div>
+
+      <div class="text">
+        <h2>Documentos de Bia</h2>
+        <p>Google Drive</p>
+      </div>
+
+    </div>
+
+    <div class="arrow">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+  </a>
+
+  <!-- SOFIA -->
+  <a class="btn"
+  href="https://drive.google.com/drive/folders/1mwjqJR8ec1hNQ66ccl8LiSujuTGq94k5?usp=drive_link"
+  target="_blank">
+
+    <div class="btn-left">
+
+      <div class="icon icon-sofia">
+        <span>S</span>
+      </div>
+
+      <div class="text">
+        <h2>Documentos de Sofia</h2>
+        <p>Google Drive</p>
+      </div>
+
+    </div>
+
+    <div class="arrow">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+  </a>
+
+  <!-- BOTÃO SAIR -->
+  <button class="exit-btn" onclick="fecharApp()">
+    <i class="fa-solid fa-power-off"></i>
+    Sair
+  </button>
+
+  <div class="footer">
+    Sistema de documentos online
+  </div>
+
+</div>
+
+<script>
+
+function fecharApp(){
+
+  window.close();
+
+  window.open('','_self');
+
+  window.close();
+
+}
+
+</script>
+
+</body>
+</html>
